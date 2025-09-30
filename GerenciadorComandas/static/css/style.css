@@ -1,0 +1,278 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+/* --- Estilo das Mesas --- */
+.mesas-container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+#mesas-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.mesa-btn {
+    padding: 15px 10px;
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.mesa-btn:hover {
+    background-color: #ec971f;
+}
+
+.mesa-btn.active {
+    background-color: #5cb85c; /* Mesa selecionada */
+}
+
+/* --- Estilo da Comanda --- */
+.comanda-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.comanda-detalhes {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as colunas quebrem em telas menores */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.comanda-itens-lancados, .cardapio-adicionar {
+    flex: 1 1 300px; /* Flexível, mas com largura mínima de 300px */
+}
+
+/* Lista de Itens */
+#itens-lancados-lista {
+    list-style: none;
+    padding: 0;
+}
+
+#itens-lancados-lista li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+#itens-lancados-lista li:hover {
+    background-color: #f9f9f9;
+}
+
+.item-info {
+    flex-grow: 1;
+}
+
+.item-valor {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Adicionar Item */
+.adicionar-item-form {
+    display: flex;
+    gap: 10px;
+}
+
+#select-cardapio {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-pequeno {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#btn-adicionar-item {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#btn-adicionar-item:hover {
+    background-color: #4cae4c;
+}
+
+/* Resumo e Fechamento */
+.resumo-fechamento {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.resumo-valores {
+    flex-grow: 1;
+}
+
+.total-final {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #d9534f;
+}
+
+.fechamento-opcoes {
+    min-width: 250px;
+}
+
+.desconto-inputs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+#input-desconto, #select-desconto-tipo {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#input-desconto {
+    flex-grow: 1;
+}
+
+#btn-aplicar-desconto {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-fechar {
+    width: 100%;
+    padding: 10px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-fechar:hover {
+    background-color: #c9302c;
+}
+
+/* --- Modais --- */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Responsivo */
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.modal-content button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+#btn-salvar-edicao {
+    background-color: #007bff;
+    color: white;
+}
+
+#btn-remover-item {
+    background-color: #d9534f;
+    color: white;
+}
+
+#btn-fechar-modal {
+    background-color: #ccc;
+    color: #333;
+}
+
+#modal-novo-valor {
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+/* --- Ajuste para Mobile (Garante a responsividade) --- */
+@media (max-width: 768px) {
+    .comanda-detalhes {
+        flex-direction: column;
+    }
+    
+    .comanda-itens-lancados, .cardapio-adicionar {
+        flex: 1 1 100%;
+    }
+    
+    .resumo-fechamento {
+        flex-direction: column;
+    }
+    
+    .input-pequeno {
+        width: 40px;
+    }
+}

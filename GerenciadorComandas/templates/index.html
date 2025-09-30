@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Comandas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Gerenciador de Comandas</h1>
+    </header>
+
+    <main>
+        <section class="mesas-container">
+            <h2>Mesas</h2>
+            <div id="mesas-lista">
+                {% for mesa in mesas %}
+                <button class="mesa-btn" data-mesa-id="{{ mesa }}">{{ mesa }}</button>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="comanda-section" class="comanda-section hidden">
+            <h2 id="comanda-mesa-titulo">Comanda da Mesa X</h2>
+            
+            <div class="comanda-detalhes">
+                <div class="comanda-itens-lancados">
+                    <h3>Itens Lançados</h3>
+                    <ul id="itens-lancados-lista">
+                        </ul>
+                </div>
+
+                <div class="cardapio-adicionar">
+                    <h3>Cardápio</h3>
+                    <div class="adicionar-item-form">
+                        <select id="select-cardapio"></select>
+                        <input type="number" id="input-quantidade" value="1" min="1" class="input-pequeno">
+                        <button id="btn-adicionar-item">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="resumo-fechamento">
+                <div class="resumo-valores">
+                    <p>Subtotal: <span id="subtotal">R$ 0,00</span></p>
+                    <p>Desconto: <span id="valor-desconto-aplicado">R$ 0,00</span></p>
+                    <p class="total-final">Total: <span id="total-final">R$ 0,00</span></p>
+                </div>
+                
+                <div class="fechamento-opcoes">
+                    <h3>Fechamento</h3>
+                    <div class="desconto-inputs">
+                        <input type="number" id="input-desconto" placeholder="Valor/Percentual" min="0">
+                        <select id="select-desconto-tipo">
+                            <option value="R$">R$</option>
+                            <option value="%">%</option>
+                        </select>
+                        <button id="btn-aplicar-desconto">Aplicar Desc.</button>
+                    </div>
+                    <button id="btn-fechar-conta" class="btn-fechar">Fechar Conta</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-edicao" class="modal hidden">
+        <div class="modal-content">
+            <h3>Editar Item</h3>
+            <p id="modal-item-nome"></p>
+            
+            <label for="modal-novo-valor">Novo Valor Unitário (R$):</label>
+            <input type="number" id="modal-novo-valor" step="0.01" min="0.01">
+            <button id="btn-salvar-edicao">Salvar</button>
+            
+            <button id="btn-remover-item" class="btn-remover">Remover Item</button>
+            <button id="btn-fechar-modal">Fechar</button>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
